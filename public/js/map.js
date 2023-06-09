@@ -11,6 +11,42 @@ var mapContainer = document.getElementById("map"),// 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption);
 // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 
+var imageSize = new kakao.maps.Size(35, 35);
+var imageOpt = {};
+var imageSrc = '/css/image/userMarkerimg.png';
+var markerImage = new kakao.maps.MarkerImage(imageSrc ,imageSize, imageOpt);
+var userMarker = new kakao.maps.Marker({
+  position: map.getCenter(),
+  image: markerImage
+});
+
+userMarker.setMap(map);
+
+kakao.maps.event.addListener(map, 'idle', function() {
+  updateUserMarker();
+});
+
+function updateUserMarker(){
+  if (navigator.geolocation) {
+      
+    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+    var lat = position.coords.latitude, // 위도
+        lon = position.coords.longitude; // 경도
+    
+    userMarker.setPosition(new kakao.maps.LatLng(lat, lon));
+
+    }, function(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }, options);
+      
+  } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+    console.log("GeoLocation 사용 불가!");
+}
+
+}
+
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,

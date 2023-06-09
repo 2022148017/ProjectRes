@@ -11,6 +11,10 @@ body {
   font-family: "KBO-Dia-Gothic_bold";
 }
 
+input {
+  font-family: "S-CoreDream-3Light";
+}
+
 .footer {
   text-align: center;
 }
@@ -20,10 +24,6 @@ button:hover {
 }
 
 button#report:hover {
-  background-color: #cccccc;
-}
-
-.map_report button:hover {
   background-color: #cccccc;
 }
 
@@ -47,6 +47,11 @@ form > div {
   text-align: center;
 }
 
+#name > div {
+  margin-top: 0px;
+  text-align: center;
+}
+
 .Emergency_main input {
   box-sizing: border-box;
   border: 1.7px solid;
@@ -62,7 +67,6 @@ form > div {
 }
 
 #pic {
-  width: 80px;
   border: none;
 }
 
@@ -105,6 +109,20 @@ textarea {
 #map {
   width: 320px;
   height: 320px;
+  border: solid 1.7px #000000;
+  border-radius: 12px;
+}
+
+#picpre {
+  margin-top: 15px;
+  text-align: center;
+}
+
+#picpre img {
+  width: 100%;
+  border: solid 1.7px #000000;
+  border-radius: 12px;
+  align-items: center;
 }
 
 /* map_report */
@@ -125,10 +143,13 @@ textarea {
   border-radius: 4px;
   font-family: "KBO-Dia-Gothic_bold";
 }
-
+.map_report button:hover {
+  background-color: #cccccc;
+}
 
 button#report {
   box-sizing: border-box;
+  color: #fa5f56;
   margin: 20px 10px 0px 10px;
   width: 280px;
   height: 40px;
@@ -137,10 +158,36 @@ button#report {
   font-family: "KBO-Dia-Gothic_bold";
 }
 
+#symptom {
+  text-align: center;
+  padding: 3px 1px 3px 1px;
+  font-size: 14px;
+  border: 1.5px solid black;
+  border-radius: 5px;
+  font-family: "S-CoreDream-3Light";
+}
+
+#gender {
+  text-align: center;
+  padding: 3px 1px 3px 1px;
+  font-size: 14px;
+  border: 1.5px solid black;
+  border-radius: 5px;
+  font-family: "S-CoreDream-3Light";
+}
+
 @font-face {
   font-family: "KBO-Dia-Gothic_bold";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff")
     format("woff");
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-3Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
   font-style: normal;
 }

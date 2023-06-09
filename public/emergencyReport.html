@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no"
+    />
     <meta charset="utf-8" />
+    <link rel="icon" href="css/image/hospital_logo.PNG" type="image/png" />
     <title>후속신고</title>
     <link rel="stylesheet" href="css/emergencyReport.css" type="text/css" />
-    <srcipt type="text/javascript" src="js/camera.js"></srcipt>
   </head>
 
   <body>
     <br />
     <br />
     <div class="Emergency_main">
-      <button class="back" onclick="document.location = './index.html'">
+      <button class="back" onclick="document.location = './quickReport.html'">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <h1>🚨 Emergency 🚨</h1>
@@ -60,17 +64,17 @@
       </form>
     </div>
     <div class="Emergency_main">
-      <form action = "/take_pic" method = "POST" enctype="multipart/form-data">
+      <form id = "name" action = "/take_pic" method = "POST" enctype="multipart/form-data">
         <div>
           <label for="takepic">사진 촬영 : </label>
-          <input id="pic" name = "pic" type="file" id="takepic" accept="image/*" />
+          <input name = "pic" type="file" id="takepic" accept="image/*" />
         </div>
         <div>
-          <button type = "submit">사진 제출 및 미리보기</button>
+          <button id = "report" type = "submit">사진 제출 및 미리보기</button>
         </div>
       </form>
       <div id = "picpre">
-          <image style = "width : 100%;" src = "/messageimg/report.jpg" alt = "이미지가 없습니다!"></image>
+          <image src = "/messageimg/report.jpg" alt = "이미지가 없습니다!"></image>
       </div>
     </div>
     <br />

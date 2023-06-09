@@ -127,7 +127,7 @@ function update_list() {
     no_result.className = "no_result";
     no_result.innerHTML = "검색 결과가 없습니다.";
     disease_list.appendChild(no_result);
-  }
+  }w
 }
 
 function display() {
@@ -147,7 +147,7 @@ function display() {
     diseaseImageBox.appendChild(diseaseImage);
 
     detailButton.id = "button_" + (i + 1);
-    detailButton.innerHTML = "자세히보기";
+    detailButton.innerHTML = "자세히 보기";
 
     var short_comment =
       "<h2>" +
@@ -217,7 +217,7 @@ function displayDetail(order) {
     detailExplain_2 =
       "<p>" +
       name_disease_group[order].intro +
-      '</p><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
+      '</p><div style="height: 10px"></div><br><br><br><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
       name_disease_group[order].cure +
       "</p>";
   } else {
@@ -226,7 +226,7 @@ function displayDetail(order) {
     detailExplain_2 =
       "<p>" +
       name_disease_group[order].intro +
-      '</p><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
+      '</p><div style="height: 10px"></div><br><br><br><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
       name_disease_group[order].cure +
       "</p>";
   }
@@ -287,7 +287,7 @@ function displayDetailByCategory() {
     detailExplain_2 =
       "<p>" +
       category_disease_group[0].intro +
-      '</p><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
+      '</p><br><br><br><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
       category_disease_group[0].cure +
       "</p>";
   } else {
@@ -298,7 +298,7 @@ function displayDetailByCategory() {
     detailExplain_2 =
       "<p>" +
       category_disease_group[0].intro +
-      '</p><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
+      '</p><br><br><br><h1>치료방법</h1><div style="height: 10px"></div><hr><div style="height: 10px"></div><p>' +
       category_disease_group[0].cure +
       "</p>";
   }

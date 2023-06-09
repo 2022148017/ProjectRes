@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no"
+    />
     <meta charset="utf-8" />
+    <link rel="icon" href="/css/image/emergency.PNG" type="image/png" />
     <title>응급신고</title>
     <script type="text/javascript" src="/js/emap.js"></script>
     <link rel="stylesheet" href="css/emergencyReport.css" type="text/css" />
@@ -14,7 +19,7 @@
   <body>
     <br /><br />
     <div class="Emergency_main">
-      <button class="back" onclick="document.location = './index.html'">
+      <button class="back" onclick="document.location = './wiki_main.html'">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <h1>🚨 Emergency 🚨</h1>
@@ -29,8 +34,13 @@
           <label for="symptom">증상 : </label>
           <select id="symptom" name = "sym">
             <option selected>심정지</option>
-            <option>골절</option>
-            <option>자상</option>
+            <option>교통사고</option>
+            <option>노인 어지럼증</option>
+            <option>심한 어지럼증</option>
+            <option>A형간염</option>
+            <option>B형간염</option>
+            <option>객혈</option>
+            <option>심한두통</option>
           </select>
         </div>
         <div>

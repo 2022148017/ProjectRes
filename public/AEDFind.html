@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no"
+    />
     <meta charset="utf-8" />
+    <link rel="icon" href="/css/image/hospital_logo.PNG" type="image/png" />
     <title>자동제세동기 찾기</title>
-    <link rel="stylesheet" href="/css/map.css" type="text/css" />
+    <link rel="stylesheet" href="/css/aedmap.css" type="text/css" />
     <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e75242818f65cc859835e3884dc7a42a&libraries=services,clusterer,drawing"
     ></script>
   </head>
   <body>
-    <header>
-      <h1>주변 자동제세동기 찾기!</h1>
-    </header>
-    <main id = "aedmap">
+    <div class="header">
+      <h2>주변 자동제세동기 찾기</h2>
+      <span id="home"
+        ><a href="wiki_main.html"><i class="fa-solid fa-house"></i></a>
+      </span>
+    </div>
+    <div id="aedmap">
+      <main>
         <section>
           <div id="map"></div>
         </section>
-    </main>
-
+      </main>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/bc4a4d4b9c.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="/js/AEDFind.js"></script>
   </body>
 </html>

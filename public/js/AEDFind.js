@@ -1,3 +1,4 @@
+
 var markers = [];
 var infowindows = [];
 
@@ -13,6 +14,17 @@ var mapContainer =  document.getElementById("map"),// 지도를 표시할 div
 // 지도를 생성합니다
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
+var imageSize = new kakao.maps.Size(35, 35);
+var imageOpt = {};
+var imageSrc = '/css/image/userMarkerimg.png';
+var markerImage = new kakao.maps.MarkerImage(imageSrc ,imageSize, imageOpt);
+var userMarker = new kakao.maps.Marker({
+  position: map.getCenter(),
+  image: markerImage
+});
+
+userMarker.setMap(map);
+
 var options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -21,21 +33,24 @@ var options = {
 
 kakao.maps.event.addListener(map, 'idle', function() {
   searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+  updateUserMarker();
 });
-  
+
+
 if (navigator.geolocation) {
       
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
     navigator.geolocation.getCurrentPosition(function(position) {
         
-      var lat = position.coords.latitude, // 위도
-          lon = position.coords.longitude; // 경도
+    var lat = position.coords.latitude, // 위도
+        lon = position.coords.longitude; // 경도
         
-      var ct = new kakao.maps.LatLng(lat, lon);
-      map.panTo(ct);  
+    var ct = new kakao.maps.LatLng(lat, lon);
+    map.panTo(ct);  
       
-      //searchAddrFromCoords(ct, displayCenterInfo);
 
+    userMarker.setPosition(ct);
+      //searchAddrFromCoords(ct, displayCenterInfo);
 
     }, function(err) {
       console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -62,6 +77,26 @@ function getAEDLocation(AED_group) {
   //window.alert(AroundAED.length);
 }
 
+function updateUserMarker(){
+  if (navigator.geolocation) {
+      
+    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+    var lat = position.coords.latitude, // 위도
+        lon = position.coords.longitude; // 경도
+    
+    userMarker.setPosition(new kakao.maps.LatLng(lat, lon));
+
+    }, function(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }, options);
+      
+  } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+    console.log("GeoLocation 사용 불가!");
+}
+  
+}
 
 
 function searchAddrFromCoords(coords, callback) {
