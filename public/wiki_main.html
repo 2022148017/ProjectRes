@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/css/image/logo.png" type="image/png" />
+    <title>질병 정보</title>
+    <link rel="stylesheet" href="/css/wiki_main.css" type="text/css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="head">
+        <div class="logo">
+          <img src="/css/image/logo.png" alt="logo" type="image/png" />
+          <a href="./wiki_main.html">질병 정보</a>
+        </div>
+        <div class="link">
+          <div class="linkHospitalBox">
+            <div class="linkHospital">
+              <img src="/css/image/hospital_logo.PNG" alt="병원 로고" />
+              <a href="./hospitalFind.html">병원 및 약국 찾기</a>
+            </div>
+          </div>
+          <div class="linkEmergencyBox">
+            <div class="linkEmergency">
+              <img src="/css/image/emergency.PNG" alt="신고 로고" />
+              <a href="./quickReport.html">긴급신고하기</a>
+            </div>
+          </div>
+        </div>
+        <span id="category">
+          <i class="fa-solid fa-bars" onclick="divBtn"></i>
+        </span>
+      </div>
+      <ul class="menu">
+        <li>
+          <a href="#" id="category_1">뇌신경</a>
+        </li>
+        <li>
+          <a href="#" id="category_2" style="font-size: 13px">정신건강</a>
+        </li>
+        <li>
+          <a href="#" id="category_3">눈</a>
+        </li>
+        <li>
+          <a href="#" id="category_4">귀코목</a>
+        </li>
+        <li>
+          <a href="#" id="category_5">구강</a>
+        </li>
+        <li>
+          <a href="#" id="category_6">뼈근육</a>
+        </li>
+        <li>
+          <a href="#" id="category_7">피부</a>
+        </li>
+        <li>
+          <a href="#" id="category_8">내분비</a>
+        </li>
+        <li>
+          <a href="#" id="category_9">호흡기</a>
+        </li>
+        <li>
+          <a href="#" id="category_10">순환기</a>
+        </li>
+        <li>
+          <a href="#" id="category_11">소화기</a>
+        </li>
+        <li>
+          <a href="#" id="category_12">면역</a>
+        </li>
+        <li>
+          <a href="#" id="category_13">비뇨기</a>
+        </li>
+        <li>
+          <a href="#" id="category_14">생식기</a>
+        </li>
+        <li>
+          <a href="#" id="category_15" style="font-size: 13px">응급상황</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="search" tupe="text" placeholder="검색어를 입력해주세요." />
+        <button id="name_search_button">
+          <i class="fa-regular fa-paper-plane"></i>
+        </button>
+        <div class="ranking">
+          <strong>이달의 검색어 :</strong>
+          <a href="/">#철우</a>
+          <a href="/">#태현</a>
+          <a href="/">#승은</a>
+          <a href="/">#협</a>
+          <a href="/">#진명</a>
+          <a href="/">#아하메드</a>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="initialScreen">
+          <h2 style="margin-bottom: 5%">🚨 응급상황인가요?</h2>
+          <div class="listCategory" id="EmergencyList">
+            <div class="singleEmergencyList" id="listEmergency_1">
+              <button>심정지</button>
+            </div>
+            <div class="singleEmergencyList" id="listEmergency_2">
+              <button>교통사고</button>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+        <div class="initialScreen">
+          <h2 style="margin-bottom: 5%">무엇을 도와드릴까요?</h2>
+          <div class="listCategory" id="listCategory">
+            <div class="singleListCategory" id="listCategory_1">
+              <button>뇌신경</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_2">
+              <button>정신건강</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_3">
+              <button>눈</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_4">
+              <button>귀코목</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_5">
+              <button>구강</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_6">
+              <button>뼈근육</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_7">
+              <button>피부</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_8">
+              <button>내분비</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_9">
+              <button>호흡기</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_10">
+              <button>순환기</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_11">
+              <button>소화기</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_12">
+              <button>면역</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_13">
+              <button>비뇨기</button>
+            </div>
+            <div class="singleListCategory" id="listCategory_14">
+              <button>생식기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h1>about us</h1>
+      <p>출처 표기 등 하자</p>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/bc4a4d4b9c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/js/wiki_main.js"></script>
+
+    <script>
+      let isOpened = false;
+      menu_button.addEventListener("click", function (event) {
+        if (isOpened) {
+          menu.style.display = "none";
+          menu_button.style.right = "5%";
+          menu_icon.classList.replace("fa-xmark", "fa-bars");
+
+          isOpened = false;
+        } else {
+          menu.style.display = "block";
+          menu_icon.classList.replace("fa-bars", "fa-xmark");
+          // menu_button.style.right = "27%";
+
+          isOpened = true;
+        }
+      });
+
+      window.addEventListener("resize", function handleScreenSizeChange() {
+        // Get the current screen width
+        var screenWidth = window.innerWidth;
+
+        // Check if the screen width is bigger than 800px
+        if (screenWidth >= 800) {
+          menu.style.display = "block";
+          menu_button.style.display = "none";
+          menu_icon.classList.replace("fa-xmark", "fa-bars");
+          isOpened = false;
+
+          // Perform your desired actions here
+        } else {
+          menu_button.style.display = "block";
+          menu.style.display = "none";
+          // if (isOpened) {
+          //   menu_button.style.right = "27%";
+          // } else {
+          //   menu_button.style.right = "5%";
+          // }
+          console.log("Screen size is not bigger than 800px");
+        }
+      });
+    </script>
+  </body>
+</html>

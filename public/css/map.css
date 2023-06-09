@@ -1,0 +1,285 @@
+body {
+  background-color: white;
+  font-family: "KBO-Dia-Gothic_bold";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#loc_search:hover {
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  background-color: #fa5f56;
+  padding: 20px 10px 10px 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0px 0px 2px 0px black;
+}
+
+#loc_search {
+  display: none;
+  font-size: 25px;
+  background-color: #fa5f56;
+  border: none;
+  padding-right: 20px;
+}
+
+.header h2 {
+  text-align: center;
+  margin-left: 10px;
+}
+
+.wmap {
+  display: flex;
+  height: 100vmax;
+  width: 100%;
+}
+
+aside {
+  width: 35%;
+  font-size: 12px;
+  height: 100%;
+  border-right: 1px;
+  padding: 10px;
+  overflow-x: auto;
+  overflow-y: auto;
+  background: #fa5f56;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.pick {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+input[type="radio"] {
+  margin: 3px 3px 0px 5px;
+}
+
+#submit {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-left: 10px;
+  width: 15%;
+  height: 25px;
+  font-family: "KBO-Dia-Gothic_bold";
+  font-size: 11px;
+}
+
+#loc {
+  border: 1px solid;
+  width: 60%;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+main {
+  display: flex;
+  box-sizing: border-box;
+  margin: 1rem;
+  width: 60%;
+  height: 98%;
+  border: 2px solid;
+  /* width: 80%; */
+}
+
+main section {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+main section #map {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+aside ul {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 0%;
+}
+
+aside li {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#info {
+  display: block;
+}
+
+/* placeList */
+
+#placesList .item {
+  position: relative;
+  border-bottom: 1px solid #888;
+  overflow: hidden;
+  cursor: pointer;
+  /* min-height: 65px; */
+}
+
+#placesList .item span {
+  display: block;
+  margin-top: 4px;
+}
+
+#placesList .info .gray {
+  color: #8a8a8a;
+}
+
+#placesList .item .jibun {
+  padding-left: 26px;
+  background: url(image/places_jibun.png) no-repeat;
+}
+
+#placesList .info .tel {
+  color: #009900;
+}
+
+#placesList li {
+  list-style: none;
+}
+
+#placesList .item .info {
+  padding: 10px 0 10px 55px;
+}
+
+#placesList .item .info h5 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#placesList .item .markerbg {
+  float: left;
+  position: absolute;
+  width: 36px;
+  height: 37px;
+  margin: 10px 0 0 10px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
+    no-repeat;
+}
+
+#placesList .item h5,
+#placesList .item .info {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#placesList .item .marker_1 {
+  background-position: 0 -10px;
+}
+#placesList .item .marker_2 {
+  background-position: 0 -56px;
+}
+#placesList .item .marker_3 {
+  background-position: 0 -102px;
+}
+#placesList .item .marker_4 {
+  background-position: 0 -148px;
+}
+#placesList .item .marker_5 {
+  background-position: 0 -194px;
+}
+#placesList .item .marker_6 {
+  background-position: 0 -240px;
+}
+#placesList .item .marker_7 {
+  background-position: 0 -286px;
+}
+#placesList .item .marker_8 {
+  background-position: 0 -332px;
+}
+#placesList .item .marker_9 {
+  background-position: 0 -378px;
+}
+#placesList .item .marker_10 {
+  background-position: 0 -423px;
+}
+#placesList .item .marker_11 {
+  background-position: 0 -470px;
+}
+#placesList .item .marker_12 {
+  background-position: 0 -516px;
+}
+#placesList .item .marker_13 {
+  background-position: 0 -562px;
+}
+#placesList .item .marker_14 {
+  background-position: 0 -608px;
+}
+#placesList .item .marker_15 {
+  background-position: 0 -654px;
+}
+
+#pagination {
+  margin: 10px auto;
+  text-align: center;
+}
+#pagination a {
+  display: inline-block;
+  margin-right: 10px;
+}
+#pagination .on {
+  font-weight: bold;
+  cursor: default;
+  color: #777;
+}
+
+#aedmap {
+  width: 100%;
+  height: 650px;
+}
+a {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+@font-face {
+  font-family: "KBO-Dia-Gothic_bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@media (max-width: 800px) {
+  aside {
+    display: none;
+  }
+  main {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #loc_search {
+    display: block;
+  }
+  .header {
+    justify-content: space-between;
+  }
+}
+@media (min-width: 800px) {
+  aside {
+    max-width: 300px;
+  }
+  main {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
