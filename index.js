@@ -4,12 +4,14 @@ const express = require('express');
 const multer = require('multer');
 const sharp = require('sharp');
 
+if(!fs.existsSync("./public/messageimg")) {fs.mkdirSync("./public/messageimg");console.log("파일 만듬");}
+
 const app = express();
 const port = process.env.PORT || 8080;
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '/messageimg');
+        cb(null, './public/messageimg');
     },
     filename: function (req, file, cb) {
         cb(null, 'report.jpg');
@@ -23,7 +25,7 @@ app.use(express.static(__dirname + '/image'));
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/json'));
-app.use(express.static(__dirname + '/messageimg'));
+app.use(express.static('./public/messageimg'));
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
@@ -84,23 +86,23 @@ app.post("/detailReport", function(req, res) {
 });
 
 app.post("/take_pic", upload.single('pic'), function(req, res, next) {
-
     try {
-        sharp('/messageimg/report.jpg')  // 압축할 이미지 경로
+        sharp('./public/messageimg/report.jpg')  // 압축할 이미지 경로
           .resize({ width: 640, height : 480}) // 비율을 유지하며 가로 크기 줄이기
           .withMetadata()	// 이미지의 exif데이터 유지
           .toBuffer((err, buffer) => {
             if (err) throw err;
             // 압축된 파일 새로 저장(덮어씌우기)
-            fs.writeFile('/messageimg/reportimg.jpg', buffer, (err) => {
+            fs.writeFile('./public/messageimg/reportimg.jpg', buffer, (err) => {
               if (err) throw err;
             });
           });
       } catch (err) {
         console.log(err);
       }
+    console.log("사진 추가");
     res.write("<script>location.href='/emergencyReport.html'</script>");
-
+    
 });
 
 
@@ -189,7 +191,7 @@ function send_dmessage(name, phon, desc, age, gend, phone) {
     const user_description = desc;
     const user_age = age;
     const user_gender = gend;
-    const pic_exist = fs.existsSync(__dirname + '/public/messageimg/report.jpg');
+    const pic_exist = fs.existsSync('./public/messageimg/reportimg.jpg');
     
     // 모듈들을 불러오기. 오류 코드는 맨 마지막에 삽입 예정
     const finErrCode = 404;
@@ -237,9 +239,11 @@ function send_dmessage(name, phon, desc, age, gend, phone) {
     const hash2 = hmac2.finalize();
     const signature2 = hash2.toString(CryptoJS.enc.Base64);
 
+
+    console.log(pic_exist);
     if(pic_exist){
 
-        const user_picture = '/messageimg/reportimg.jpg';
+        const user_picture = './public/messageimg/reportimg.jpg';
         let rF = fs.readFileSync(user_picture);
         const encode = Buffer.from(rF).toString('base64');
 
@@ -331,19 +335,19 @@ function send_dmessage(name, phon, desc, age, gend, phone) {
 }
 
 function delete_img() {
-    if (fs.existsSync('/messageimg/report.jpg')) {
+    if (fs.existsSync('./public/messageimg/report.jpg')) {
         // 파일이 존재한다면 true 그렇지 않은 경우 false 반환
         try {
-          fs.unlinkSync('messageimg/report.jpg');
+          fs.unlinkSync('./public/messageimg/report.jpg');
           console.log("report delete");
         } catch (error) {
           console.log(error);
         }
     }
-    if (fs.existsSync('/messageimg/reportimg.jpg')) {
+    if (fs.existsSync('./public/messageimg/reportimg.jpg')) {
         // 파일이 존재한다면 true 그렇지 않은 경우 false 반환
         try {
-          fs.unlinkSync('/messageimg/reportimg.jpg');
+          fs.unlinkSync('./public/messageimg/reportimg.jpg');
           console.log("reportimg delete");
         } catch (error) {
           console.log(error);
