@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/public/messageimg');
+        cb(null, '/messageimg');
     },
     filename: function (req, file, cb) {
         cb(null, 'report.jpg');
@@ -86,13 +86,13 @@ app.post("/detailReport", function(req, res) {
 app.post("/take_pic", upload.single('pic'), function(req, res, next) {
 
     try {
-        sharp(__dirname + '/public/messageimg/report.jpg')  // 압축할 이미지 경로
+        sharp('/messageimg/report.jpg')  // 압축할 이미지 경로
           .resize({ width: 640, height : 480}) // 비율을 유지하며 가로 크기 줄이기
           .withMetadata()	// 이미지의 exif데이터 유지
           .toBuffer((err, buffer) => {
             if (err) throw err;
             // 압축된 파일 새로 저장(덮어씌우기)
-            fs.writeFile(__dirname + '/public/messageimg/reportimg.jpg', buffer, (err) => {
+            fs.writeFile('/messageimg/reportimg.jpg', buffer, (err) => {
               if (err) throw err;
             });
           });
@@ -239,7 +239,7 @@ function send_dmessage(name, phon, desc, age, gend, phone) {
 
     if(pic_exist){
 
-        const user_picture = __dirname + '/public/messageimg/reportimg.jpg';
+        const user_picture = '/messageimg/reportimg.jpg';
         let rF = fs.readFileSync(user_picture);
         const encode = Buffer.from(rF).toString('base64');
 
@@ -331,19 +331,19 @@ function send_dmessage(name, phon, desc, age, gend, phone) {
 }
 
 function delete_img() {
-    if (fs.existsSync(__dirname + '/public/messageimg/report.jpg')) {
+    if (fs.existsSync('/messageimg/report.jpg')) {
         // 파일이 존재한다면 true 그렇지 않은 경우 false 반환
         try {
-          fs.unlinkSync(__dirname + '/public/messageimg/report.jpg');
+          fs.unlinkSync('messageimg/report.jpg');
           console.log("report delete");
         } catch (error) {
           console.log(error);
         }
     }
-    if (fs.existsSync(__dirname + '/public/messageimg/reportimg.jpg')) {
+    if (fs.existsSync('/messageimg/reportimg.jpg')) {
         // 파일이 존재한다면 true 그렇지 않은 경우 false 반환
         try {
-          fs.unlinkSync(__dirname + '/public/messageimg/reportimg.jpg');
+          fs.unlinkSync('/messageimg/reportimg.jpg');
           console.log("reportimg delete");
         } catch (error) {
           console.log(error);
