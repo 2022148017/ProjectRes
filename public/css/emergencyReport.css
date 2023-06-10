@@ -1,12 +1,10 @@
 body {
   position: relative;
   background-color: #fa5f56;
-  /* background-image: url(image/emgbg.png); */
-  max-width: 400px;
-  margin: auto;
-  width: 100vmax;
-  /* width: 100%; */
-  left: calc(calc(100vw - 100vmax) / 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: -1;
   font-family: "KBO-Dia-Gothic_bold";
 }
@@ -28,6 +26,7 @@ button#report:hover {
 }
 
 .Emergency_main {
+  box-sizing: border-box;
   border-radius: 15px;
   padding: 40px;
   box-shadow: 0 0px 30px #ffffff;
@@ -35,6 +34,7 @@ button#report:hover {
   background: #ffffff;
   margin-bottom: 50px;
   opacity: 95%;
+  width: 400px;
 }
 
 .Emergency_main > div {
@@ -66,8 +66,32 @@ form > div {
   width: 55px;
 }
 
-#pic {
-  border: none;
+.picd {
+  align-items: center;
+  width: 280px;
+  height: 40px;
+}
+
+.picd label {
+  padding: 10px 90px;
+  color: black;
+  vertical-align: middle;
+  background-color: white;
+  cursor: pointer;
+  width: 280px;
+  height: 40px;
+  margin-left: 30px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.picd input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
 }
 
 .Emergency_main > form > h2 {
